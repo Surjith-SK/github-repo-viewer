@@ -1,0 +1,24 @@
+<section class="page-center">
+	<mat-card class="username-card">
+		<mat-card-header>
+		  <div mat-card-avatar>
+			<img width="40px" src="https://res.cloudinary.com/sulonya-website/image/upload/v1702311778/profile_pic_daf82dad2b.png" alt="">
+		  </div>
+		  <mat-card-title>Username</mat-card-title>
+		  <mat-card-subtitle>Required to proceed*</mat-card-subtitle>
+		</mat-card-header>
+		<img mat-card-image loading="lazy" src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" alt="Photo of a Github">
+		<mat-card-content>
+		  <p class="text-center">
+			Please enter username of the github user to fetch repositories and profile data.
+		  </p>
+		  <mat-form-field class="w-full" appearance="outline">
+			<mat-label>Username</mat-label>
+			<input matInput placeholder="Placeholder" [(ngModel)]="username">
+		  </mat-form-field>
+		</mat-card-content>
+		<mat-card-actions>
+		  <button [disabled]="!username" [routerLink]="['/user', username, 'profile']" mat-flat-button class="primary-button">Submit</button>
+		</mat-card-actions>
+	</mat-card>
+</section>
