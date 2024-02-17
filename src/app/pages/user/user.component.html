@@ -10,6 +10,7 @@
 		Repositories
 		</a>
 	</nav>
+	<mat-progress-bar mode="indeterminate" *ngIf="isLoading$ | async"></mat-progress-bar>
 	<mat-tab-nav-panel #tabPanel>
 		<router-outlet></router-outlet>
 	</mat-tab-nav-panel>

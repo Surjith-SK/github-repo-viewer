@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +7,21 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class CommonService {
 	public isUserNamePresent$ = new BehaviorSubject<boolean>(false);
 	public userData$ = new BehaviorSubject<any>({});
-  constructor() { }
+	private isLoading$ = new BehaviorSubject<boolean>(false);
+    
+	constructor() { }
 
+    public setLoader(): void {
+		this.isLoading$.next(true);
+	}
+
+	public unsetLoader(): void {
+		this.isLoading$.next(false);
+	}
+
+	public getLoader(): Observable<boolean> {
+		return this.isLoading$.asObservable();
+	}
 
 
 }

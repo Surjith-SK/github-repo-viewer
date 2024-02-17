@@ -8,6 +8,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpErrorInterceptor } from './shared/interceptors/http-error.interceptor';
+import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,12 @@ import { HttpErrorInterceptor } from './shared/interceptors/http-error.intercept
 		provide: HTTP_INTERCEPTORS,
 		useClass: HttpErrorInterceptor,
 		multi: true
-	  }
+	},
+	{
+		provide: HTTP_INTERCEPTORS,
+		useClass: LoaderInterceptor,
+		multi: true
+	}
   ],
   bootstrap: [AppComponent]
 })

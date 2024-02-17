@@ -21,4 +21,10 @@ export class GithubService {
 	queryParams = queryParams.append("per_page", count);
 	return this.http.get(`${this.env.apiUrl}users/${username}/repos`, {params: queryParams})
   }
+
+  public searchUser(username: string): Observable<any> {
+	let queryParams = new HttpParams();
+    queryParams = queryParams.append("q", `${username}+in:login`);
+	return this.http.get(`https://api.github.com/search/users?q=${username}+in:login`)
+  }
 }

@@ -9,6 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { RouterModule } from '@angular/router';
 import { HoverDirective } from './directives/hover/hover.directive';
@@ -26,7 +29,10 @@ const material = [
 	MatInputModule,
 	MatTabsModule,
 	MatIconModule,
-	MatPaginatorModule
+	MatPaginatorModule,
+	MatAutocompleteModule,
+	MatSelectModule,
+	MatProgressBarModule
 ]
 @NgModule({
   declarations: [

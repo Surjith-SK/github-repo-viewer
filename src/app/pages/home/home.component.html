@@ -12,9 +12,13 @@
 		  <p class="text-center">
 			Please enter username of the github user to fetch repositories and profile data.
 		  </p>
-		  <mat-form-field class="w-full" appearance="outline">
-			<mat-label>Username</mat-label>
-			<input matInput placeholder="Placeholder" [(ngModel)]="username">
+		  <mat-form-field  class="w-full" appearance="outline">
+			<input type="text" (input)="searchUsers()" placeholder="Pick one" aria-label="Number" matInput [(ngModel)]="username" [matAutocomplete]="auto">
+			<mat-autocomplete #auto="matAutocomplete">
+			  <mat-option *ngFor="let user of userList" [value]="user.login" >
+				{{ user.login }}
+			  </mat-option>
+			</mat-autocomplete>
 		  </mat-form-field>
 		</mat-card-content>
 		<mat-card-actions>

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GithubService } from '../../shared/services/github/github.service';
 import { CommonService } from '../../shared/services/common/common.service';
-import { take } from 'rxjs';
+import { BehaviorSubject, Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -12,6 +12,8 @@ import { take } from 'rxjs';
 export class UserComponent {
 	private username: string = '';
 	public userdata: any = {};
+	public isLoading$ = new Observable<boolean>();
+
 	constructor(
 		private activatedRoute: ActivatedRoute,
 		private githubService: GithubService,
@@ -22,6 +24,7 @@ export class UserComponent {
 
 	ngOnInit(): void {
 		this.getUserdata();
+		this.isLoading$ = this.commonService.getLoader();
 	}
 
 	private getUserdata(): void {
