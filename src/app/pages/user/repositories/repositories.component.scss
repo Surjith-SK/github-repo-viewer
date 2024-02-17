@@ -1,0 +1,18 @@
+@import 'color.variable';
+
+.repo {
+	display: flex;
+	.repo-icon {
+		width: 50px;
+		height: 50px;
+		border-radius: 4px;
+		background-color: $secondary-dark;
+	}
+	@media screen and (max-width: 500px) {
+		flex-direction: column;
+		border: 1px solid #348973;
+		border-radius: 4px;
+		padding: 10px;
+	}
+}
+

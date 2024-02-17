@@ -1,0 +1,24 @@
+@media screen and (max-width: 500px) {
+	.mobile-column {
+		flex-direction: column !important;
+	}
+	.mobile-col-x-center {
+		align-items: center !important;
+	}
+	.mobile-flex {
+		display: flex;
+	}
+	.mobile-gap-10 {
+		gap: 10px;
+	}
+	.navbar img.profile-pic.no-mobile {
+		display: none;
+	}
+	.mob-px-30 {
+		padding-left: 30px !important;
+		padding-right: 30px !important;
+	}
+	.welcome-text {
+		font-size: 12px;
+	}
+}

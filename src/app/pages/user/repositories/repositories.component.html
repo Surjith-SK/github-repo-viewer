@@ -1,1 +1,40 @@
-<p>repositories works!</p>
+<section class="w-full py-20">
+	<div class="repo-table-heading color-secondary-dark">Showing {{start}} to {{end}}</div>
+	<div class="all-repos d-flex flex-column gap-10 py-20">
+		<div class="d-flex repo gap-10" *ngFor="let repo of repoData">
+			<div class="repo-icon page-center color-theme">
+				<mat-icon>chevron_left</mat-icon> 
+				<mat-icon>chevron_right</mat-icon>
+			</div>
+			<div class="repo-data d-flex space-between w-full mobile-column gap-10">
+				<div class="data-section mobile-column mobile-gap-10 mobile-flex">
+					<strong class="color-black">{{repo.name}}</strong>
+					<div class="description ellipsis max-w-400 color-secondary-dark">{{repo.description || '-'}}</div>
+					<span *ngFor="let topic of repo.topics; let isLast=last" class=" color-secondary-dark">
+						{{topic}}{{isLast ? '' : ', '}}
+					</span>
+				</div>
+				<a [href]="repo.html_url"
+				target="_blank" rel="noopener noreferrer">
+				<button
+				[appHover]="'primary-button'"
+				[appHoverRemove]="'secondary-button'"
+				class="secondary-button"
+				mat-stroked-button>Go to repository</button>
+			</a>
+			</div>
+		</div>
+	</div>
+	<mat-paginator
+               (page)="handlePageEvent($event)"
+               [pageSize]="perPageCount"
+               [disabled]="false"
+			   [length]="reposCount"
+               [showFirstLastButtons]="false"
+               [pageSizeOptions]="[]"
+               [hidePageSize]="true"
+               [pageIndex]="page - 1"
+               aria-label="Select page">
+	</mat-paginator>
+
+</section>

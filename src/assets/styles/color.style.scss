@@ -1,0 +1,21 @@
+@import 'color.variable';
+
+.color-theme {
+	color: $theme-color !important;
+}
+
+.color-black {
+	color: $black !important;
+}
+
+.color-secondary {
+	color: $secondary !important;
+}
+
+.color-secondary-dark {
+	color: $secondary-dark !important;
+}
+
+.bg-white {
+	background-color: $white !important;
+}

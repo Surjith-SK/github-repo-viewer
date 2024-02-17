@@ -1,0 +1,15 @@
+<section class="py-20 d-flex w-full mobile-column mobile-col-x-center gap-10">
+	<div class="profile-data align-center d-flex gap-10">
+		<img loading="lazy" width="130px" class="rounder-image" [src]="userdata.avatar_url" alt="user profile pic">
+		<div class="profile-details d-flex flex-column lh-20">
+			<strong class="color-black">{{userdata.name || userdata.login}}</strong>
+			<span class="color-secondary-dark ellipsis max-w-200">{{userdata.bio || 'No bio found'}}</span>
+			<span class="color-secondary-dark">{{userdata.public_repos}} public repositories found</span>
+		</div>
+	</div>
+	<div class="flex-spacer"></div>
+	<div class="action-buttons d-flex align-center gap-10">
+		<button mat-flat-button class="secondary-button">Follow</button>
+		<button mat-flat-button class="primary-button">Sponsor</button>
+	</div>
+</section>

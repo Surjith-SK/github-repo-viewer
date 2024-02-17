@@ -1,3 +1,4 @@
+import { CommonService } from './../services/common/common.service';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,7 +12,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
    constructor(
       private router: Router,
-	  private notificationService: NotificationService
+	  private notificationService: NotificationService,
+	  private commonService: CommonService
       ){}
 
    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -21,7 +23,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         catchError((error: any) => {
          if (error.status === 404) {
 			//currently we are considering only get api and thus it is straight forward. 
-			this.notificationService.error(TOASTR_MESSAGES.noUsername, '')
+			this.notificationService.error(TOASTR_MESSAGES.noUsername, '');
+			this.commonService.isUserNamePresent$.next(false)
             setTimeout(() => {
 				this.router.navigate([`/`]);
 			}, 3000);

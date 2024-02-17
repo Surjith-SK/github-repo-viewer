@@ -1,21 +1,15 @@
-<mat-toolbar class="bg-white navbar px-40">
-	<img class="cursor-pointer" routerLink="'/'" width="90px" loading="lazy" src="assets/images/aquera-logo-2.svg">
+<mat-toolbar class="bg-white navbar px-40 mob-px-30">
+	<img class="cursor-pointer" [routerLink]="['/']" width="90px" loading="lazy" src="assets/images/aquera-logo-2.svg">
 	<span class="flex-spacer"></span>
 
 	<div class="d-flex gap-10 align-center">
 		<ng-container  *ngIf="isUserNamePresent$ | async; else welcomeTemplate">
-			<button mat-flat-button routerLink="'/'" class="primary-button" aria-label="icon-button with heart icon">
+			<button mat-flat-button [routerLink]="['/']" class="primary-button" aria-label="icon-button with heart icon">
 				Home
-			</button>
-			<button mat-flat-button routerLink="'/'" class="secondary-button" aria-label="icon-button with heart icon">
-				Dummy 1
-			</button>
-			<button mat-flat-button routerLink="'/'" class="secondary-button" aria-label="icon-button with heart icon">
-				Dummy 2
 			</button>
 		</ng-container>
 
-		<img src="https://res.cloudinary.com/sulonya-website/image/upload/v1702311778/profile_pic_daf82dad2b.png" alt="Surjith"
+		<img class="profile-pic" [routerLink]="['/home']" [routerLinkActive]="['no-mobile']" src="https://res.cloudinary.com/sulonya-website/image/upload/v1702311778/profile_pic_daf82dad2b.png" alt="Surjith"
 		width="40px">
 
 	</div>

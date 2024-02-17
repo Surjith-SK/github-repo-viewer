@@ -1,0 +1,16 @@
+<section class="w-80 m-auto">
+	<app-profile-header [userdata]="userdata"></app-profile-header>
+	<nav class="navbar" mat-tab-nav-bar [tabPanel]="tabPanel">
+		<a mat-tab-link
+		[routerLink]="['./profile']" [routerLinkActive]="['is-active']">
+		Overview
+		</a>
+		<a mat-tab-link
+		[routerLink]="['./repositories']" [routerLinkActive]="['is-active']">
+		Repositories
+		</a>
+	</nav>
+	<mat-tab-nav-panel #tabPanel>
+		<router-outlet></router-outlet>
+	</mat-tab-nav-panel>
+</section>

@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { GithubService } from '../../../shared/services/github/github.service';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GithubService } from '../../shared/services/github/github.service';
+import { CommonService } from '../../shared/services/common/common.service';
 import { take } from 'rxjs';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrl: './user.component.scss'
 })
-export class ProfileComponent implements OnInit {
+export class UserComponent {
 	private username: string = '';
 	public userdata: any = {};
 	constructor(
 		private activatedRoute: ActivatedRoute,
-		private githubService: GithubService
+		private githubService: GithubService,
+		private commonService: CommonService
 		) {
 			this.username = this.activatedRoute.snapshot.params['id'];
 		}
@@ -28,6 +30,8 @@ export class ProfileComponent implements OnInit {
 		).subscribe(
 			(userdata) => {
 				this.userdata = userdata;
+				this.commonService.isUserNamePresent$.next(!!this.userdata);
+				this.commonService.userData$.next(this.userdata);
 				console.log(this.userdata)
 			}
 		)

@@ -8,6 +8,4 @@ import { NotificationService } from './shared/services/notification/notification
 })
 export class AppComponent {
   title = 'github-repo-viewer';
-
-  constructor(private notificationService: NotificationService) {}
 }

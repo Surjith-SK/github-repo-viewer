@@ -1,20 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
+import { UserComponent } from './user.component';
+import { ProfileBodyComponent } from './profile/profile-body/profile-body.component';
 
 const routes: Routes = [
 	{
 		path: ':id',
 		children: [
 			{
-				path: 'profile',
-				component: ProfileComponent,
-			},
-			{
-				path: 'repo',
-				component: RepositoriesComponent
-			}
+				path: '',
+				component: UserComponent,
+				children: [
+					{
+						path: 'profile',
+						component: ProfileBodyComponent,
+					},
+					{
+						path: 'repositories',
+						component: RepositoriesComponent
+					}
+				]
+			},			
 		]
 	}
 ];
