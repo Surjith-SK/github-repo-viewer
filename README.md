@@ -26,6 +26,8 @@ Project preview - [Assignment link](https://sk-aquera.netlify.app/home)
 - View Github user profile data
 - View Github user repositories in a paginated way
 - Error handling on server error, 404 (username not found)
+- Pagination
+- Responsive UI
 
 ## Local Setup and Installation
 
