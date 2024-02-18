@@ -17,8 +17,8 @@ An Angular 17 application that uses github API to search username and their prof
 
 Project preview - [Assignment link](https://sk-aquera.netlify.app/home)
 
-
-![](https://github.com/Surjith-SK/github-repo-viewer/blob/main/readme-assets/demo.gif)
+![Desktop](https://github.com/Surjith-SK/github-repo-viewer/blob/main/readme-assets/demo.gif)
+![Desktop](https://github.com/Surjith-SK/github-repo-viewer/blob/main/readme-assets/demo-mobile.gif)
 
 ## Features
 
